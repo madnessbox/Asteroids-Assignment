@@ -6,7 +6,6 @@ class World
 {
 public:
 	std::vector<Entity*> entities;
-	unsigned int NUM_ENTITIES = 0;
 
 	void Update();
 	void Draw();

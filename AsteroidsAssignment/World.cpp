@@ -26,16 +26,16 @@ void World::Draw()
 
 void World::SpawnEntity(Entity* entity)
 {
+	unsigned int index = entities.size();
+	
 	entities.push_back(entity);
-	entities[NUM_ENTITIES]->index = NUM_ENTITIES;
-	entity = entities[NUM_ENTITIES];
-	NUM_ENTITIES += 1;
+	entities[index]->index = index;
+	entity = entities[index];
 }
 
 void World::DestroyEntity(Entity* entity)
 {
 	entities.erase(entities.begin() + entity->index);
-	entities[entity->index] = nullptr;
 	delete entity;
-	NUM_ENTITIES -= 1;
+	entity = nullptr;
 }
