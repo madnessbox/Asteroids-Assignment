@@ -17,5 +17,5 @@ int engGetHeight();
 int engGetWidth();
 
 // Input
-void engInputUpdate(const SDL_Event& event);
-bool engGetKey(Keys key);
+void engInputUpdate(const uint8_t* const state);
+bool engGetKey(KeyPress::Type key);

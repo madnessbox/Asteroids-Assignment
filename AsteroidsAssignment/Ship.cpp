@@ -1,6 +1,8 @@
 #include "Ship.h"
 #include "Engine.h"
 #include "Vector.h"
+#include "Entity.h"
+#include "World.h"
 #include <math.h>
 
 void Ship::Spawn(Vector2 initPos)
@@ -49,15 +51,23 @@ void Ship::RotateCW()
 
 void Ship::CheckInput()
 {
-	if (engGetKey(Keys::D))
-		RotateCW();
-	else if (engGetKey(Keys::A))
+	if (engGetKey(KeyPress::Left))
 		RotateCCW();
-
-	if (engGetKey(Keys::W))
+	else if (engGetKey(KeyPress::Right))
+		RotateCW();
+	
+	if (engGetKey(KeyPress::Up))
 		Accelerate();
 	else
 		Deaccelerate();
+
+	if (engGetKey(KeyPress::Space))
+		Fire();
+}
+
+void Ship::Fire()
+{
+	
 }
 
 void Ship::Draw()

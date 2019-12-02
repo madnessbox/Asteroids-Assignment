@@ -11,6 +11,7 @@ public:
 	void RotateCCW();
 	void RotateCW();
 	void CheckInput();
+	void Fire();
 	void Draw() override;
 	void Update() override;
 	

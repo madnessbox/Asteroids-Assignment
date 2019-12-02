@@ -14,14 +14,13 @@
 #include "Bullet.h"
 
 Ship player;
-bool playerAcceleratePressed = false;
-bool playerCWPressed = false;
-bool playerCCWPressed = false;
 
 int numAsteroids = 5;
 Asteroid asteroids[5];
 
 std::vector<Bullet> bulletVector;
+
+const Uint8* state = SDL_GetKeyboardState(NULL);
 
 int main()
 {
@@ -41,17 +40,9 @@ int main()
 	while (!quit)
 	{
 		engRender();
-		engInputUpdate(event);
+		engInputUpdate(state);
 		
-		/*if (playerCWPressed)
-			player.RotateCW();
-		else if (playerCCWPressed)
-			player.RotateCCW();
 		
-		if (playerAcceleratePressed)
-			player.Accelerate();
-		else
-			player.Deaccelerate();*/
 		player.CheckInput();
 		
 		player.Draw();
@@ -75,32 +66,6 @@ int main()
 
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				quit = true;
-			
-			if (event.type == SDL_KEYDOWN)
-			{
-				if (event.key.keysym.sym == SDLK_UP)
-					playerAcceleratePressed = true;
-				if (event.key.keysym.sym == SDLK_LEFT)
-					playerCCWPressed = true;
-				if (event.key.keysym.sym == SDLK_RIGHT)
-					playerCWPressed = true;
-				if (event.key.keysym.sym == SDLK_SPACE)
-				{
-					Bullet bullet;
-					bulletVector.push_back(bullet);
-					bullet.Spawn(player.position, player.forward);
-				}
-			}
-
-			if (event.type == SDL_KEYUP)
-			{
-				if (event.key.keysym.sym == SDLK_UP)
-					playerAcceleratePressed = false;
-				if (event.key.keysym.sym == SDLK_LEFT)
-					playerCCWPressed = false;
-				if (event.key.keysym.sym == SDLK_RIGHT)
-					playerCWPressed = false;
-			}
 		}
 
 		SDL_Delay(.5f);

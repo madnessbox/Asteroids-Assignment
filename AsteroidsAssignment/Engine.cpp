@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <time.h>
 #include <unordered_map>
+#include <array>
 
 SDL_Renderer* renderer;
 SDL_Window* window;
@@ -24,6 +25,8 @@ std::unordered_map<int, SDL_Scancode> keyMap =
 	{KeyPress::Left, SDL_SCANCODE_LEFT},
 	{KeyPress::Space, SDL_SCANCODE_SPACE},
 };
+
+std::array<bool, KeyPress::Size> keyPressed;
 
 void engInit()
 {
@@ -78,20 +81,15 @@ int engGetWidth()
 	return WINDOW_WIDTH;
 }
 
-void engInputUpdate(const SDL_Event& event)
+void engInputUpdate(const uint8_t* const state)
 {
-	if(SDL_KEYDOWN)
+	for (int i = 0; i < KeyPress::Size; ++i)
 	{
-		KeyPressedStates[event.key.keysym.scancode] = true;
-	}
-
-	if(SDL_KEYDOWN)
-	{
-		KeyPressedStates[event.key.keysym.scancode] = false;
+		keyPressed[i] = state[keyMap[i]];
 	}
 }
 
-bool engGetKey(Keys key)
+bool engGetKey(KeyPress::Type key)
 {
-	return KeyPressedStates[(int)key];
+	return keyPressed[key];
 }
