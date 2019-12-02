@@ -1,0 +1,35 @@
+﻿  Asteroid.cpp
+d:\programming\asteroidsassignment\asteroidsassignment\vector.h(48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(55): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\asteroid.cpp(78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Bullet.cpp
+d:\programming\asteroidsassignment\asteroidsassignment\vector.h(48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\bullet.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Engine.cpp
+  Main.cpp
+d:\programming\asteroidsassignment\asteroidsassignment\main.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\main.cpp(106): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+  Ship.cpp
+d:\programming\asteroidsassignment\asteroidsassignment\vector.h(48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(68): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(69): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(74): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(75): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(83): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(86): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroidsassignment\asteroidsassignment\ship.cpp(89): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  World.cpp
+d:\programming\asteroidsassignment\asteroidsassignment\vector.h(48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  AsteroidsAssignment.vcxproj -> D:\Programming\AsteroidsAssignment\x64\Debug\AsteroidsAssignment.exe
