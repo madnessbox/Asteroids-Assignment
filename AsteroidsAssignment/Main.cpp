@@ -12,8 +12,12 @@
 #include "Ship.h"
 #include "Asteroid.h"
 #include "Bullet.h"
+#include "World.h"
 
-Ship player;
+
+World world;
+
+Entity* player;
 
 int numAsteroids = 5;
 Asteroid asteroids[5];
@@ -29,7 +33,10 @@ int main()
 	engInit();
 	SDL_Event event;
 
-	player.Spawn({ 540, 360 });
+	
+	world.SpawnEntity(player);
+	
+	//player.Spawn({ 540, 360 });
 
 	for (int i = 0; i < numAsteroids; i++)
 	{
@@ -43,9 +50,12 @@ int main()
 		engInputUpdate(state);
 		
 		
-		player.CheckInput();
+
 		
-		player.Draw();
+		//player.Update();
+
+		world.Update();
+		world.Draw();
 
 		for (int i = 0; i < numAsteroids; i++)
 		{

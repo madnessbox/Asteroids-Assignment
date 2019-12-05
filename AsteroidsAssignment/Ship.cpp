@@ -5,7 +5,7 @@
 #include "World.h"
 #include <math.h>
 
-void Ship::Spawn(Vector2 initPos)
+void Ship::Spawn(Vector2 initPos = {540, 360})
 {
 	position = initPos;
 	velocity = {0, 0};
@@ -109,5 +109,6 @@ void Ship::Draw()
 
 void Ship::Update()
 {
-	
+	CheckInput();
+	Draw();
 }
