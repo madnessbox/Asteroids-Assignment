@@ -1,16 +1,35 @@
 #pragma once
-#include "Entity.h"
 #include <vector>
+#include "Ship.h"
+#include "Asteroid.h"
+#include "Bullet.h"
+#include "Vector.h"
 
 class World
 {
 public:
-	std::vector<Entity*> entities;
+	static const int MAX_NUM_BULLETS = 10;
+	static const int MAX_NUM_ASTEROIDS = 10;
+	int NUM_BULLETS = 0;
+	int NUM_ASTEROIDS = 0;
+
+	Ship player;
+	Bullet bullets[MAX_NUM_BULLETS];
+	Asteroid asteroids[MAX_NUM_ASTEROIDS];
+
+	Vector2 worldSize;
 	
 	void Update();
 	void Draw();
 
-	void SpawnEntity(Entity* entity);
+	void SpawnPlayer();
+
+	void SpawnAsteroid();
+	void DestroyAsteroid(int index);
+
+	void SpawnBullet();
+	void DestroyBullet(int index);
+
+
 	
-	void DestroyEntity(Entity* entity);
 };

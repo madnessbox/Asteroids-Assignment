@@ -3,6 +3,7 @@
 #include "Vector.h"
 #include "Entity.h"
 #include "World.h"
+#include "Bullet.h"
 #include <math.h>
 
 void Ship::Spawn(Vector2 initPos = {540, 360})
@@ -15,14 +16,31 @@ void Ship::Spawn(Vector2 initPos = {540, 360})
 void Ship::Accelerate()
 {
 	velocity += (forward * accelerationCoef);
-	position += velocity;
 }
 
 void Ship::Deaccelerate()
 {
 	Vector2 temp = -velocity * breakCoef;
 	velocity += temp;
+}
+
+void Ship::UpdatePosition()
+{
 	position += velocity;
+
+	// Loop position on X axis
+	if (position.x > engGetWidth())
+		position.x = 0;
+
+	if (position.x < 0)
+		position.x = engGetWidth();
+	
+	// Loop position on Y axis
+	if (position.y > engGetHeight())
+		position.y = 0;
+
+	if (position.y < 0)
+		position.y = engGetHeight();
 }
 
 void Ship::RotateCCW()
@@ -110,5 +128,5 @@ void Ship::Draw()
 void Ship::Update()
 {
 	CheckInput();
-	Draw();
+	UpdatePosition();
 }

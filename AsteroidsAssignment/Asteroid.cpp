@@ -65,6 +65,20 @@ void Asteroid::SetRandomShape()
 void Asteroid::Update()
 {
 	position += velocity;
+
+	// Loop position on X axis
+	if (position.x > engGetWidth() + maxSize)
+		position.x = -maxSize;
+
+	if (position.x < -maxSize)
+		position.x = engGetWidth() + maxSize;
+
+	// Loop position on Y axis
+	if (position.y > engGetHeight() + maxSize)
+		position.y = -maxSize;
+
+	if (position.y < -maxSize)
+		position.y = engGetHeight() + maxSize;
 }
 
 void Asteroid::Draw()

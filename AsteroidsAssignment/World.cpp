@@ -4,38 +4,92 @@
 #include "Ship.h"
 #include "Asteroid.h"
 #include "Bullet.h"
-#include "Entity.h"
 #include <math.h>
 #include <vector>
 
 void World::Update()
 {
-	for (int i = 0; i < entities.size(); ++i)
+	player.Update();
+
+	for (int i = 0; i < NUM_ASTEROIDS; i++)
 	{
-		entities[i]->Update();
+		if (asteroids[i].destroyed == false)
+		{
+			asteroids[i].Update();
+		}
+	}
+
+	for (int i = 0; i < NUM_BULLETS; i++)
+	{
+		bullets[i].Update();
 	}
 }
 
 void World::Draw()
 {
-	for (int i = 0; i < entities.size(); ++i)
+	player.Draw();
+
+	for (int i = 0; i < NUM_ASTEROIDS; i++)
 	{
-		entities[i]->Draw();
+		if (asteroids[i].destroyed == false)
+		{
+			asteroids[i].Draw();
+		}
+	}
+
+	for (int i = 0; i < NUM_BULLETS; i++)
+	{
+		bullets[i].Draw();
 	}
 }
 
-void World::SpawnEntity(Entity* entity)
+void World::SpawnPlayer()
 {
-	unsigned int index = entities.size();
-	
-	entities.push_back(entity);
-	entities[index]->index = index;
-	entity = entities[index];
+	player.Spawn(worldSize / 2);
 }
 
-void World::DestroyEntity(Entity* entity)
+void World::SpawnAsteroid()
 {
-	entities.erase(entities.begin() + entity->index);
-	delete entity;
-	entity = nullptr;
+	if (NUM_ASTEROIDS < MAX_NUM_ASTEROIDS)
+	{
+		for (int i = 0; i < MAX_NUM_ASTEROIDS; i++)
+		{
+			if (asteroids[i].destroyed)
+			{
+				asteroids[i].destroyed = false;
+				asteroids[i].index = i;
+				asteroids[i].Spawn();
+				NUM_ASTEROIDS++;
+				return;
+			}
+		}
+	}
+}
+
+void World::DestroyAsteroid(int index)
+{
+
+}
+
+void World::SpawnBullet()
+{
+	if (NUM_BULLETS < MAX_NUM_BULLETS)
+	{
+		for (int i = 0; i < MAX_NUM_BULLETS; i++)
+		{
+			if (bullets[i].destroyed)
+			{
+				bullets[i].destroyed = false;
+				bullets[i].index = i;
+				bullets[i].Spawn(player.position, player.forward);
+				NUM_BULLETS++;
+				return;
+			}
+		}
+	}
+}
+
+void World::DestroyBullet(int index)
+{
+
 }

@@ -17,13 +17,6 @@
 
 World world;
 
-Entity* player;
-
-int numAsteroids = 5;
-Asteroid asteroids[5];
-
-std::vector<Bullet> bulletVector;
-
 const Uint8* state = SDL_GetKeyboardState(NULL);
 
 int main()
@@ -33,41 +26,20 @@ int main()
 	engInit();
 	SDL_Event event;
 
-	
-	world.SpawnEntity(player);
-	
-	//player.Spawn({ 540, 360 });
-
-	for (int i = 0; i < numAsteroids; i++)
-	{
-		asteroids[i].Spawn();
-	}
+	world.worldSize = {(float)engGetWidth(), (float)engGetHeight()};
+	world.SpawnPlayer();
+	world.SpawnAsteroid();
+	world.SpawnAsteroid();
+	world.SpawnAsteroid();
 	
 	bool quit = false;
 	while (!quit)
 	{
 		engRender();
 		engInputUpdate(state);
-		
-		
-
-		
-		//player.Update();
-
+			
 		world.Update();
 		world.Draw();
-
-		for (int i = 0; i < numAsteroids; i++)
-		{
-			asteroids[i].Update();
-			asteroids[i].Draw();
-		}
-
-		for (int i = 0; i < bulletVector.size(); i++)
-		{
-			bulletVector[i].Update();
-			bulletVector[i].Draw();
-		}
 		
 		while (SDL_PollEvent(&event))
 		{

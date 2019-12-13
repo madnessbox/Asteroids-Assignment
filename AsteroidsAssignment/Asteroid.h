@@ -2,15 +2,15 @@
 #include "Vector.h"
 #include "Entity.h"
 
-class Asteroid : public Entity
+class Asteroid
 {
 public:
 	void Spawn();
 	void SetRandomPosition();
 	void SetRandomVelocity();
 	void SetRandomShape();
-	void Update() override;
-	void Draw() override;
+	void Update();
+	void Draw();
 
 	Vector2 position;
 	Vector2 velocity;
@@ -19,4 +19,8 @@ public:
 	const int shapeResloution = 5;
 	int maxSize = 50;
 	Vector2 drawPoints[5];
+
+	short tag;
+	int index;
+	bool destroyed = true;
 };
