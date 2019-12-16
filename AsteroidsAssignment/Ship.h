@@ -1,6 +1,5 @@
 #pragma once
 #include "Vector.h"
-#include "Entity.h"
 
 class Ship
 {

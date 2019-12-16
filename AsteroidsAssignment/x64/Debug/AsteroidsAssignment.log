@@ -1,2 +1,14 @@
-﻿  World.cpp
+﻿  Asteroid.cpp
+d:\programming\asteroids-assignment\asteroidsassignment\vector.h(48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(55): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(74): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(93): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\programming\asteroids-assignment\asteroidsassignment\asteroid.cpp(95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   AsteroidsAssignment.vcxproj -> D:\Programming\Asteroids-Assignment\x64\Debug\AsteroidsAssignment.exe

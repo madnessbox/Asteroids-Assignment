@@ -14,10 +14,6 @@ void Bullet::Update()
 	position += velocity;
 }
 
-void Bullet::CheckCollisions()
-{
-}
-
 void Bullet::Draw()
 {
 	engSetColor(255, 255, 0);

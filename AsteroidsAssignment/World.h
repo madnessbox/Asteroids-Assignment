@@ -30,6 +30,6 @@ public:
 	void SpawnBullet();
 	void DestroyBullet(int index);
 
-
+	void CheckCollisions();
 	
 };

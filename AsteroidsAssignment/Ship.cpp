@@ -1,7 +1,6 @@
 #include "Ship.h"
 #include "Engine.h"
 #include "Vector.h"
-#include "Entity.h"
 #include "World.h"
 #include "Bullet.h"
 #include <math.h>

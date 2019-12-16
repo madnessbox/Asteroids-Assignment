@@ -71,6 +71,11 @@ void engDrawLine(int x1, int y1, int x2, int y2)
 	SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
 }
 
+void engDrawLine(Vector2 pos1, Vector2 pos2)
+{
+	SDL_RenderDrawLine(renderer, pos1.x, pos1.y, pos2.x, pos2.y);
+}
+
 int engGetHeight()
 {
 	return WINDOW_HEIGHT;

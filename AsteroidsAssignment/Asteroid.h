@@ -1,6 +1,5 @@
 #pragma once
 #include "Vector.h"
-#include "Entity.h"
 
 class Asteroid
 {
@@ -12,15 +11,18 @@ public:
 	void Update();
 	void Draw();
 
+	bool CheckIfCollide(Vector2 otherPos);
+
 	Vector2 position;
 	Vector2 velocity;
 	float speed = 0.01f;
 	
-	const int shapeResloution = 5;
+	static const int shapeResloution = 5;
 	int maxSize = 50;
-	Vector2 drawPoints[5];
+	Vector2 drawPoints[shapeResloution];
 
 	short tag;
 	int index;
 	bool destroyed = true;
+	bool isColliding = false;
 };

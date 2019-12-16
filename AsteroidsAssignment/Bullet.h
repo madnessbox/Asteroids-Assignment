@@ -1,12 +1,10 @@
 #pragma once
 #include "Vector.h"
-#include "Entity.h"
 
 class Bullet
 {
 public:	
 	void Spawn(Vector2 position, Vector2 direction);
-	void CheckCollisions();
 	void Update();
 	void Draw();
 

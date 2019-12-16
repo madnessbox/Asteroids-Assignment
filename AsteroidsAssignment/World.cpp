@@ -23,6 +23,8 @@ void World::Update()
 	{
 		bullets[i].Update();
 	}
+
+	CheckCollisions();
 }
 
 void World::Draw()
@@ -91,5 +93,17 @@ void World::SpawnBullet()
 
 void World::DestroyBullet(int index)
 {
+
+}
+
+void World::CheckCollisions()
+{
+	// TODO: Check player-asteroid collision
+	// TODO: Check bullet-asteroid collision
+
+	for (int i = 0; i < NUM_ASTEROIDS; i++)
+	{
+		asteroids[i].CheckIfCollide(player.position);
+	}
 
 }

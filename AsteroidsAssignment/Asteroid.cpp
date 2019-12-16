@@ -83,7 +83,10 @@ void Asteroid::Update()
 
 void Asteroid::Draw()
 {
-	engSetColor(0, 255, 0);
+	if (isColliding)
+		engSetColor(255, 255, 0);
+	else
+		engSetColor(0, 255, 0);
 
 	for (int i = 1; i < shapeResloution; i++)
 	{
@@ -92,4 +95,37 @@ void Asteroid::Draw()
 	engDrawLine(position.x + drawPoints[0].x, position.y + drawPoints[0].y, position.x + drawPoints[shapeResloution - 1].x, position.y + drawPoints[shapeResloution - 1].y);
 
 	engSetColor(0, 0, 0);
+}
+
+bool Asteroid::CheckIfCollide(Vector2 otherPos)
+{
+	// Dot all drawPoints with otherPos, get most towards point and check radius vs distance
+
+	// TODO: Figure out why all dots are almost the same
+	float closestDot = -1.f;
+	int closestDotIndex = 0;
+	for (int i = 0; i < shapeResloution; i++)
+	{
+		float dot = Dot(otherPos - position, position + drawPoints[i]);
+		if (dot > closestDot)
+		{
+			closestDot = dot;
+			closestDotIndex = i;
+		}
+	}
+
+	Vector2 dotVector = position + drawPoints[closestDotIndex];// *closestDot;
+
+	engSetColor(0, 0, 255);
+	engDrawLine(position, dotVector);
+	engSetColor(0, 0, 0);
+
+	if (Length(otherPos - position) < Length(drawPoints[closestDotIndex] + position))
+	{
+		isColliding = true;
+		return true;
+	}
+
+	isColliding = false;
+	return false;
 }
