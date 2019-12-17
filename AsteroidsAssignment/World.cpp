@@ -98,12 +98,17 @@ void World::DestroyBullet(int index)
 
 void World::CheckCollisions()
 {
-	// TODO: Check player-asteroid collision
-	// TODO: Check bullet-asteroid collision
-
 	for (int i = 0; i < NUM_ASTEROIDS; i++)
 	{
 		asteroids[i].CheckIfCollide(player.position);
+	}
+
+	for (int i = 0; i < NUM_ASTEROIDS; i++)
+	{
+		for (int j = 0; j < NUM_BULLETS; j++)
+		{
+			asteroids[i].CheckIfCollide(bullets[i].position);
+		}
 	}
 
 }

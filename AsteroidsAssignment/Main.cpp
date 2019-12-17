@@ -31,6 +31,8 @@ int main()
 	world.SpawnAsteroid();
 	world.SpawnAsteroid();
 	world.SpawnAsteroid();
+	world.SpawnAsteroid();
+	
 	
 	bool quit = false;
 	while (!quit)

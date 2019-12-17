@@ -99,14 +99,11 @@ void Asteroid::Draw()
 
 bool Asteroid::CheckIfCollide(Vector2 otherPos)
 {
-	// Dot all drawPoints with otherPos, get most towards point and check radius vs distance
-
-	// TODO: Figure out why all dots are almost the same
 	float closestDot = -1.f;
 	int closestDotIndex = 0;
 	for (int i = 0; i < shapeResloution; i++)
 	{
-		float dot = Dot(otherPos - position, position + drawPoints[i]);
+		float dot = Dot(Normalize(otherPos - position), Normalize((position + drawPoints[i]) - position));
 		if (dot > closestDot)
 		{
 			closestDot = dot;
@@ -114,13 +111,7 @@ bool Asteroid::CheckIfCollide(Vector2 otherPos)
 		}
 	}
 
-	Vector2 dotVector = position + drawPoints[closestDotIndex];// *closestDot;
-
-	engSetColor(0, 0, 255);
-	engDrawLine(position, dotVector);
-	engSetColor(0, 0, 0);
-
-	if (Length(otherPos - position) < Length(drawPoints[closestDotIndex] + position))
+	if (Length(otherPos - position) < Length((position + drawPoints[closestDotIndex]) - position))
 	{
 		isColliding = true;
 		return true;

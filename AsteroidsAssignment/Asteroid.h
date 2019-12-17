@@ -17,7 +17,7 @@ public:
 	Vector2 velocity;
 	float speed = 0.01f;
 	
-	static const int shapeResloution = 5;
+	static const int shapeResloution = 10;
 	int maxSize = 50;
 	Vector2 drawPoints[shapeResloution];
 
