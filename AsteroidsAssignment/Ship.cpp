@@ -5,11 +5,12 @@
 #include "Bullet.h"
 #include <math.h>
 
-void Ship::Spawn(Vector2 initPos = {540, 360})
+void Ship::Spawn(Vector2 initPos, World& world)
 {
 	position = initPos;
 	velocity = {0, 0};
 	forward = {1, 0};
+	this->world = &world;
 }
 
 void Ship::Accelerate()
@@ -84,7 +85,7 @@ void Ship::CheckInput()
 
 void Ship::Fire()
 {
-	
+	world->SpawnBullet(position, forward);
 }
 
 void Ship::Draw()

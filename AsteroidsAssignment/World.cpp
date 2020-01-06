@@ -21,7 +21,10 @@ void World::Update()
 
 	for (int i = 0; i < NUM_BULLETS; i++)
 	{
-		bullets[i].Update();
+		if (bullets[i].destroyed == false)
+		{
+			bullets[i].Update();
+		}
 	}
 
 	CheckCollisions();
@@ -41,13 +44,16 @@ void World::Draw()
 
 	for (int i = 0; i < NUM_BULLETS; i++)
 	{
-		bullets[i].Draw();
+		if (bullets[i].destroyed == false)
+		{
+			bullets[i].Draw();
+		}
 	}
 }
 
-void World::SpawnPlayer()
+void World::SpawnPlayer(World& worldptr)
 {
-	player.Spawn(worldSize / 2);
+	player.Spawn(worldSize / 2, worldptr);
 }
 
 void World::SpawnAsteroid()
@@ -73,7 +79,7 @@ void World::DestroyAsteroid(int index)
 
 }
 
-void World::SpawnBullet()
+void World::SpawnBullet(Vector2 position, Vector2 direction)
 {
 	if (NUM_BULLETS < MAX_NUM_BULLETS)
 	{
@@ -83,7 +89,7 @@ void World::SpawnBullet()
 			{
 				bullets[i].destroyed = false;
 				bullets[i].index = i;
-				bullets[i].Spawn(player.position, player.forward);
+				bullets[i].Spawn(position, direction);
 				NUM_BULLETS++;
 				return;
 			}
@@ -98,10 +104,16 @@ void World::DestroyBullet(int index)
 
 void World::CheckCollisions()
 {
+	if (NUM_ASTEROIDS <= 0)
+		return;
+
 	for (int i = 0; i < NUM_ASTEROIDS; i++)
 	{
 		asteroids[i].CheckIfCollide(player.position);
 	}
+
+	if (NUM_BULLETS <= 0)
+		return;
 
 	for (int i = 0; i < NUM_ASTEROIDS; i++)
 	{

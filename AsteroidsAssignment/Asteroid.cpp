@@ -44,8 +44,8 @@ void Asteroid::SetRandomShape()
 	for (int i = 0; i < shapeResloution; i++)
 	{
 		// Rotate point at random distance from center, around center by shapePointSpread angle
-		// + 20 to avoid small numbers
-		float randomDistance = (rand() % maxSize) + 20;
+		
+		float randomDistance = (rand() % maxSize) + 20; // magic number to avoid too small values
 
 		Vector2 pointToRotate;
 		pointToRotate.x = randomDistance;

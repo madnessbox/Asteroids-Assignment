@@ -22,12 +22,12 @@ public:
 	void Update();
 	void Draw();
 
-	void SpawnPlayer();
+	void SpawnPlayer(World& worldptr);
 
 	void SpawnAsteroid();
 	void DestroyAsteroid(int index);
 
-	void SpawnBullet();
+	void SpawnBullet(Vector2 position, Vector2 direction);
 	void DestroyBullet(int index);
 
 	void CheckCollisions();

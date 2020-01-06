@@ -27,7 +27,7 @@ int main()
 	SDL_Event event;
 
 	world.worldSize = {(float)engGetWidth(), (float)engGetHeight()};
-	world.SpawnPlayer();
+	world.SpawnPlayer(world);
 	world.SpawnAsteroid();
 	world.SpawnAsteroid();
 	world.SpawnAsteroid();
