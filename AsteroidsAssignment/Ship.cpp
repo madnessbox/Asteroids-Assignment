@@ -80,7 +80,7 @@ void Ship::CheckInput()
 		Deaccelerate();
 
 	if (engGetKey(KeyPress::Space))
-		Fire();
+		Fire(); // TODO: Is called twice (probably on down and up)
 }
 
 void Ship::Fire()
