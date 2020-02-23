@@ -9,6 +9,11 @@
 
 void World::Update()
 {
+	/* TODO 2: 
+		As you can see the Update function now has 2 seperate loops for asteroids and bullets.
+		This means that instead of just having one big loop going over all the entities, I can now instead decide
+		when and what is being updated.
+	*/
 	player.Update();
 
 	for (int i = 0; i < NUM_ASTEROIDS; i++)
@@ -104,6 +109,13 @@ void World::DestroyBullet(int index)
 
 void World::CheckCollisions()
 {
+	/* TODO 3: 
+		Same story as in TODO 2.
+		Since I don't use one big loop for collision detection anymore, I can now decide what exact combinations of objects
+		to check for collision between eachother. This means, no more if statements in the loops, as well as no skipping
+		certain loops because one of the entities was of the wrong type.
+	*/
+
 	if (NUM_ASTEROIDS <= 0)
 		return;
 
